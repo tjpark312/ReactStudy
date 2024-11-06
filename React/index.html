@@ -9,33 +9,29 @@
 <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
+
     const root = document.getElementById("root");
-    let counter = 0; // 이런 변수들을 JSX에 전달하는 방법에 대해 알려주겠다. vanila 에서는 span.innerText = ~ ${counter} 이런식으로 이용함
 
-    function countUp() {
-        counter = counter + 1;
-        render();
-    }
+    function App(){
 
-
-    // const container = React.createElement("div", null, [Title, Btn])
-    // 컴포넌트의 첫 글자는 무조건 대문자 이여야함
-
-    function render() {
-        ReactDOM.render(<Container />, root)
-    }
-
-    function Container(){
+        const [counter, modifier] = React.useState(0)
+        console.log(data);
+        
+        
+        
         return(
         <div>
-            <h3>전체 클릭수 : {counter} </h3>
-            <button onClick={countUp}>눌러주실래요?</button>
+            <h3>전체 클릭수 : 0 </h3>
+            <button>눌러주실래요?</button>
         </div>
-    );
-    };
-    render();
+        );
+    }
+    ReactDOM.render(<App />, root)
 </script>
 </html>
+
+    <!-- const container = React.createElement("div", null, [Title, Btn])
+    컴포넌트의 첫 글자는 무조건 대문자 이여야함 -->
 
     <!-- /**
      * UnderStanding Status
@@ -44,3 +40,10 @@
      * Container를 한번 렌더링해주는게 전부임.  -> Container를 리렌더링해서 보여줘야함 
      * 따라서 countUp을 한번 해줄떄 ReactDOM.render(<Container />, root) 이 코드를 한번 더 호출하고 싶은 것임
      * render를 계속 하는 것은 좋은 방법은 아니다 차차 알아가자 -->
+
+     <!-- 
+     setState part One
+     const [counter, modifier] = React.useState(0);
+     이와 같은 문법은 destructuring assignment(구조 분해 할당) 이라고함  
+     counter 가 data 고 modifier가 내가 설정한 함수임
+     -->
